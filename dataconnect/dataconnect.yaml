@@ -1,0 +1,12 @@
+specVersion: "v1"
+serviceId: "PalmShop_Saas_Mobile"
+location: "asia-east1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "palmshop_saas_mobile-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]

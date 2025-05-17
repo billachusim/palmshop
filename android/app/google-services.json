@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "550480712424",
+    "firebase_url": "https://palm-shop-default-rtdb.firebaseio.com",
+    "project_id": "palm-shop",
+    "storage_bucket": "palm-shop.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550480712424:android:1ab80c54a8735c80f1af5d",
+        "android_client_info": {
+          "package_name": "com.TechFaculty.PalmShop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6R3uDkUDeTmWbqiG1AsrNQc_Uhiv5bFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
