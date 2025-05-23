@@ -5,11 +5,11 @@ class CustomerModel {
   CustomerModel(this.customerName, this.phoneNumber, this.type, this.profilePicture, this.emailAddress, this.customerAddress, this.dueAmount, this.openingBalance, this.remainedBalance, this.note, {required this.gst, this.receiveWhatsappUpdates});
 
   CustomerModel.fromJson(Map<dynamic, dynamic> json)
-      : customerName = json['customerName'] ?? 'Test',
+      : customerName = json['customerName'] ?? 'Guest',
         phoneNumber = json['phoneNumber'] as String,
         type = json['type'] as String,
         profilePicture = json['profilePicture'] as String,
-        emailAddress = json['emailAddress'] as String,
+        emailAddress = json['emailAddress'] ?? 'payments@palmshop.ng',
         customerAddress = json['customerAddress'] as String,
         dueAmount = json['due'] as String,
         openingBalance = json['openingBalance'] as String,

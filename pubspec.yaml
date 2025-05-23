@@ -42,6 +42,8 @@ dependencies:
   google_fonts: ^6.2.1
   barcode_widget: ^2.0.4
   flutter_grid_button: ^2.1.0
+  flutterwave_standard: ^1.1.0
+  uuid: ^4.5.1
   firebase_core: ^3.4.0
   firebase_database: ^11.1.1
   firebase_auth: ^5.2.0

@@ -241,7 +241,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                   Center(
                     child: Text(
-                      '${lang.S.of(context).poweredBy} $appName',
+                      'Powered by Tech Faculty',
                       style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 17),
                     ),
                   ),

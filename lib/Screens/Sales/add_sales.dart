@@ -9,6 +9,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutterwave_standard/core/flutterwave.dart';
+import 'package:flutterwave_standard/models/requests/customer.dart';
+import 'package:flutterwave_standard/models/requests/customizations.dart';
+import 'package:flutterwave_standard/models/responses/charge_response.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:mobile_pos/Provider/add_to_cart.dart';
@@ -26,6 +30,7 @@ import 'package:mobile_pos/pdf/print_pdf.dart';
 import 'package:mobile_pos/subscription.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../Provider/printer_provider.dart';
 import '../../Provider/product_provider.dart';
@@ -154,6 +159,7 @@ class _AddSalesScreenState extends State<AddSalesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Consumer(builder: (context, consumerRef, __) {
       final providerData = consumerRef.watch(cartNotifier);
       final printerData = consumerRef.watch(printerProviderNotifier);
@@ -1123,13 +1129,39 @@ class _AddSalesScreenState extends State<AddSalesScreen> {
                               ),
                               child: Center(
                                 child: Text(
-                                  lang.S.of(context).cacel,
-                                  style: const TextStyle(fontSize: 18, color: Colors.white),
+                                  "X",
+                                  style: const TextStyle(fontSize: 19, color: Colors.white),
                                 ),
                               ),
                             ),
                           )),
                           const SizedBox(width: 10),
+
+                          Expanded(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                maximumSize: const Size(double.infinity, 48),
+                                minimumSize: const Size(double.infinity, 48),
+                                disabledBackgroundColor: theme.colorScheme.primary.withAlpha(38),
+                              ),
+                              onPressed: () async {
+                                await _handlePayment(context, consumerRef);
+                              },
+                              child: Text(
+                                "Pay",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: theme.colorScheme.primary,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(width: 10),
+
                           Expanded(
                             child: GestureDetector(
                               onTap: saleButtonClicked
@@ -1421,4 +1453,78 @@ class _AddSalesScreenState extends State<AddSalesScreen> {
       }
     });
   }
+
+  Future<void> _handlePayment(BuildContext context, WidgetRef ref) async {
+    try {
+      final providerData = ref.watch(cartNotifier);
+
+      final Customer customer = Customer(
+        name: widget.customerModel.customerName,
+        phoneNumber: widget.customerModel.phoneNumber,
+        email: widget.customerModel.emailAddress,
+      );
+
+      final Flutterwave flutterwave = Flutterwave(
+        publicKey: "FLWPUBK-1a5e6b3f16351f89cf49cd0b70ada336-X",
+        currency: "NGN",
+        amount: providerData.getTotalAmount().toStringAsFixed(2),
+        customer: customer,
+        paymentOptions: "card, banktransfer, ussd",
+        customization: Customization(
+          title: "PalmShop Purchase",
+          description: "Payment for your items",
+        ),
+        txRef: const Uuid().v4(),
+        redirectUrl: "https://www.palmshop.ng",
+        isTestMode: false,
+      );
+
+      final ChargeResponse response = await flutterwave.charge(context);
+
+      if (response.success == true) {
+        showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+            title: const Text("Payment Successful"),
+            content: Text("Transaction Reference: ${response.txRef}"),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text("OK"),
+              ),
+            ],
+          ),
+        );
+      } else {
+        showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+            title: const Text("Payment Failed"),
+            content: Text("Status: ${response.status}"),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text("OK"),
+              ),
+            ],
+          ),
+        );
+      }
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          title: const Text("Error"),
+          content: Text(e.toString()),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text("OK"),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
 }

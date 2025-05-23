@@ -61,11 +61,11 @@ bool isVatAdded({required List<AddToCartModel> products}) {
 }
 
 ///________Demo_mode__________________
-String appName = 'Pos Saas';
-String invoiceName = 'Pos_Saas';
-String splashScreenLogo = 'images/logo1.png';
-String loginScreenLogo = 'images/sblogo.png';
-String pdfFooter = 'acnoo.com';
+String appName = 'PalmShop';
+String invoiceName = 'PalmShop';
+String splashScreenLogo = 'images/logo.png';
+String loginScreenLogo = 'images/logo.png';
+String pdfFooter = 'palmshop.ng';
 bool isDemo = false;
 String demoText = 'You Can\'t change anything in demo mode';
 
