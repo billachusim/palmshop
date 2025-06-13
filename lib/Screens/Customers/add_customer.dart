@@ -435,7 +435,7 @@ class _AddCustomerState extends State<AddCustomer> {
                                 ),
                               ),
                             ),
-                            Padding(
+                            /*Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: AppTextField(
                                 textFieldType: TextFieldType.NAME,
@@ -453,7 +453,7 @@ class _AddCustomerState extends State<AddCustomer> {
                                   hintText: lang.S.of(context).enterCustomerGstNumber,
                                 ),
                               ),
-                            ),
+                            ),*/
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: AppTextField(

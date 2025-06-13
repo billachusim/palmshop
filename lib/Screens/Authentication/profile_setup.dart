@@ -499,7 +499,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                           ),
                         ),
                       ),
-                      Padding(
+                      /*Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: AppTextField(
                           onChanged: (value) {
@@ -522,7 +522,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),*/
                       ButtonGlobalWithoutIcon(
                         buttontext: lang.S.of(context).continu,
                         buttonDecoration: kButtonDecoration.copyWith(color: kMainColor, borderRadius: const BorderRadius.all(Radius.circular(30))),

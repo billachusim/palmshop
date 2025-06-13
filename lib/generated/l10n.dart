@@ -728,8 +728,8 @@ class S {
   /// `Powered By Pos Saas`
   String get powerdedByMobiPos {
     return Intl.message(
-      'Powered By Pos Saas',
-      name: 'powerdedByMobiPos',
+      'Powered By TechFaculty',
+      name: 'powerdedByTechFaculty',
       desc: '',
       args: [],
     );
@@ -737,7 +737,7 @@ class S {
 
   /// `Parties`
   String get parties {
-    return Intl.message('Parties', name: 'parties', desc: '', args: []);
+    return Intl.message('Customers', name: 'customers', desc: '', args: []);
   }
 
   /// `Stock List`
@@ -1005,10 +1005,10 @@ class S {
     );
   }
 
-  /// `Update your profile to connect your doctor with better impression`
+  /// `Update your profile to connect your business with better impression`
   String get updateYourProfileToConnect {
     return Intl.message(
-      'Update your profile to connect your doctor with better impression',
+      'Update your profile to connect your business with better impression',
       name: 'updateYourProfileToConnect',
       desc: '',
       args: [],
@@ -1308,7 +1308,7 @@ class S {
   /// `Parties List`
   String get partiesList {
     return Intl.message(
-      'Parties List',
+      'Customers List',
       name: 'partiesList',
       desc: '',
       args: [],
@@ -1317,13 +1317,13 @@ class S {
 
   /// `Party Name`
   String get partyName {
-    return Intl.message('Party Name', name: 'partyName', desc: '', args: []);
+    return Intl.message('Customer Name', name: 'partyName', desc: '', args: []);
   }
 
   /// `Enter Party Name`
   String get enterPartyName {
     return Intl.message(
-      'Enter Party Name',
+      'Enter Customer Name',
       name: 'enterPartyName',
       desc: '',
       args: [],
