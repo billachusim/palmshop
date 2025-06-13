@@ -17,8 +17,8 @@ class CurrencyScreen extends StatefulWidget {
 }
 
 class _CurrencyScreenState extends State<CurrencyScreen> {
-  String? selectedCountry = '\$ (US Dollar)';
-  String currency = "\$";
+  String? selectedCountry = '₦ (Nigerian Naira)';
+  String currency = "₦";
 
   final List<String> countryList = [
     '\$ (US Dollar)',
@@ -153,7 +153,7 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
   ];
 
   final Map<String, String> currencySymbols = {
-    '\$ (US Dollar)': '\$',
+    '₦ (Nigerian Naira)': '₦',
     '₹ (Rupee)': '₹',
     '€ (Euro)': '€',
     '₽ (Ruble)': '₽',
@@ -320,7 +320,7 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
       personalInformationRef.update({'currency': currency});
       await prefs.setString('currency', currency);
     } else {
-      currency = "\$";
+      currency = "₦";
       await prefs.setString('currency', currency);
     }
     setState(() {

@@ -1086,7 +1086,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Update Your Profile",
     ),
     "updateYourProfileToConnect": MessageLookupByLibrary.simpleMessage(
-      "Update your profile to connect your doctor with better impression",
+      "Update your profile to connect your business with better impression",
     ),
     "updateYourProfiletoConnectTOCusomter":
         MessageLookupByLibrary.simpleMessage(

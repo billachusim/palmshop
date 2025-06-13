@@ -408,7 +408,7 @@ class _EditProfileState extends State<EditProfile> {
                             ),
                           ),
                         ),
-                        Padding(
+                        /*Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: SizedBox(
                             height: 60.0,
@@ -429,7 +429,7 @@ class _EditProfileState extends State<EditProfile> {
                               ),
                             ),
                           ),
-                        ),
+                        ),*/
                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: AppTextField(
