@@ -638,7 +638,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "paid": MessageLookupByLibrary.simpleMessage("Paid"),
     "paidAmount": MessageLookupByLibrary.simpleMessage("Paid Amount"),
     "parties": MessageLookupByLibrary.simpleMessage("Parties"),
-    "partiesList": MessageLookupByLibrary.simpleMessage("Parties List"),
+    "partiesList": MessageLookupByLibrary.simpleMessage("Customers List"),
     "partyGST": MessageLookupByLibrary.simpleMessage("Party GST"),
     "partyName": MessageLookupByLibrary.simpleMessage("Party Name"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
